@@ -4,8 +4,15 @@ const obj = {
     arr: [1, 2, 3, 4, 5],
     tom: 'there'
 };
-const arrValues = [];
+const arrValues = []
 
-arrValues.push(obj['some'], obj['dom'], obj.arr(), obj['tom'])
-
+for (let i in obj){
+    if (Array.isArray(obj[i])){
+        for(let j = 0; j < obj[i].length;j++){
+            arrValues.push(obj[i][j])
+        }
+    }else{
+        arrValues.push(obj[i])
+    }
+}
 console.log(arrValues)
